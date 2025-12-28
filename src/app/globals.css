@@ -1,62 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Colors */
-  --primary: #4f46e5;
-  /* Indigo 600 */
-  --primary-foreground: #ffffff;
-  --secondary: #ec4899;
-  /* Pink 500 */
-  --secondary-foreground: #ffffff;
+  /* Brand Colors - HSL */
+  --primary: 243 75% 59%;
+  /* Indigo 600 #4f46e5 */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 330 81% 60%;
+  /* Pink 500 #ec4899 */
+  --secondary-foreground: 0 0% 100%;
 
   /* Backgrounds */
-  --background: #0f172a;
-  /* Slate 900 */
-  --foreground: #f8fafc;
-  /* Slate 50 */
-  --card: rgba(30, 41, 59, 0.7);
-  /* Slate 800 with opacity */
-  --card-foreground: #f8fafc;
+  --background: 222 47% 11%;
+  /* Slate 900 #0f172a */
+  --foreground: 210 40% 98%;
+  /* Slate 50 #f8fafc */
+
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
 
   /* Accents */
-  --accent: #1e293b;
-  --accent-foreground: #f8fafc;
+  --accent: 217 33% 17%;
+  /* Slate 800 */
+  --accent-foreground: 210 40% 98%;
 
-  /* Borders */
-  --border: #334155;
-  --input: #334155;
-  --ring: #4f46e5;
+  /* Muted */
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+
+  /* Borders & Inputs */
+  --border: 217 16% 23%;
+  /* Slate 700/800 mix */
+  --input: 217 16% 23%;
+  --ring: 243 75% 59%;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: var(--font-sans), sans-serif;
   min-height: 100vh;
-  /* Premium Gradient Background */
+
+  /* Premium Gradient Background - Subtle & Deep */
   background-image:
-    radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.15) 0px, transparent 50%);
+    radial-gradient(circle at 15% 50%, hsl(var(--primary) / 0.08) 0px, transparent 50%),
+    radial-gradient(circle at 85% 30%, hsl(var(--secondary) / 0.08) 0px, transparent 50%);
   background-attachment: fixed;
 }
 
 /* Glassmorphism Utilities */
 .glass {
-  background: var(--card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: hsl(var(--card) / 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--foreground) / 0.08);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-hover:hover {
+  background: hsl(var(--card) / 0.7);
+  border-color: hsl(var(--foreground) / 0.15);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
