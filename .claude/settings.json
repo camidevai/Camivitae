@@ -1,0 +1,21 @@
+{
+  "project_metadata": {
+    "name": "Camivitae",
+    "type": "Web Application",
+    "stack": {
+      "framework": "Next.js (App Router)",
+      "language": "TypeScript",
+      "styling": "Tailwind CSS"
+    }
+  },
+  "commands": {
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "lint": "npm run lint",
+    "test": "echo 'Manual verification required'"
+  },
+  "hooks": {
+    "PreToolUse": [],
+    "PostToolUse": []
+  }
+}
